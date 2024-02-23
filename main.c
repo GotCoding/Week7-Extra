@@ -41,10 +41,10 @@ int main(int argc , char **argv) {
   else 
   {
     enqueue_struct(&q, atoi(argv[i]), atoi(argv[i+1]));
-    i += 1; //
+    i += 1; // มีไว้เพื่อข้ามไป 2 เลขเพราะเลขแรกจะเก็บตัวเลือกอาหารส่วนเลขที่สองจะเก็บจำนวนที่สั่ง เช่น 3 4 สั่งอาหารที่ 3 จำนวน 4 ที่
   }
  }
  printf("================================================\n");
- printf("There are %d people left in the queue\n", q.size);
+ printf("There are %d people left in the queue\n", q.size); //บอกจำนวน order ที่ยังไม่ได้ทำ
   return 0;
 }

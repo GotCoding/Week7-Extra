@@ -37,7 +37,7 @@ int dequeue_struct(Queue *q)
   int static count = 1;
   if (t)
   {
-    switch (t->order_number)
+    switch (t->order_number) // เป็น switch case เพื่อทำการปรับให้รายการที่สั่งกลายเป็นราคาของรายการนั้นและเก็บชื่อ เช่น order 1 ก็จะเปลี่ยนเป็น 100 Ramen
     {
       case 1: value = 100; strcpy(name, "Ramen"); break;
       case 2: value = 20; strcpy(name, "Somtum"); break;
@@ -46,11 +46,11 @@ int dequeue_struct(Queue *q)
     }
     if (noFood == 0)
     {    
-      price = value*t->quantity;
-      printf("Customer No.%d\n", count);
-      printf("%s\n", name);
-      printf("You have to pay %d\n", price);
-      while (1)
+      price = value*t->quantity; // ทำการนำราคาของรายการที่สั่งมาคูนกับจำนวนที่สั่งเพื่อหาราคาที่ต้องจ่าย
+      printf("Customer No.%d\n", count); // โชว์ลำดับลูกค้า
+      printf("%s\n", name); // แสดงชื่อของรายการที่สั่ง
+      printf("You have to pay %d\n", price); // บอกราคาที่ต้องจ่าย
+      while (1) // ทำการวนลูปรับราคาจนกว่าจะใส่จำนวนเงินที่มากกว่าหรือเท่ากับราคาที่ต้องจ่าย
       {
         printf(":");
         scanf("%d", &pay);
@@ -62,7 +62,7 @@ int dequeue_struct(Queue *q)
         else if (pay > price)
         {
           printf("Thank you\n");
-          printf("Change is %d\n", pay - price);
+          printf("Change is %d\n", pay - price); // หากจ่ายเกินราคา ก็จะแสดงเงินทอนออกมา ซึ่งมีค่าเท่ากับ เงินที่จ่าย ลบ ราคาที่ต้องจ่าย
           break;
         }
       }
